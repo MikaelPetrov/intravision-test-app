@@ -1,0 +1,33 @@
+.header {
+  height: 66px;
+  background: #d1e0ed;
+
+  &__search {
+    position: relative;
+    margin: 13px 16px;
+    height: 40px;
+    border-radius: 20px;
+    max-width: 680px;
+    background: #fff;
+  }
+
+  &__input {
+    outline: none;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    padding: 0 30px;
+    border-radius: 20px;
+    border: 1px solid #42aaff;
+
+    &:hover {
+      box-shadow: 0 0 10px 0 rgba(0, 140, 240, 0.2);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
