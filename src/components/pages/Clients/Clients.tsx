@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 const Clients: React.FC = () => {
-  return <div>Clients page is here!</div>;
+  return <div>The clients page is hosted here!</div>;
 };
 
 export default memo(Clients);

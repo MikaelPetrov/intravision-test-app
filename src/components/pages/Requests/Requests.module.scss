@@ -1,0 +1,20 @@
+.requests {
+  width: 100%;
+  font-family: Ubuntu, sans-serif;
+  font-size: 16px;
+}
+
+.create {
+  text-align: left;
+
+  &__button {
+    height: 40px;
+    width: 180px;
+    margin: 24px auto;
+    margin-left: 260px;
+    border-radius: 20px;
+
+    font-size: 16px !important;
+    line-height: 1 !important;
+  }
+}

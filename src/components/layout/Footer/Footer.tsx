@@ -5,7 +5,7 @@ import React, { memo } from "react";
 const { Footer } = Layout;
 
 const AppFooter: React.FC = () => {
-  return <Footer style={{ textAlign: "center" }}></Footer>;
+  return <Footer style={{ padding: 0 }}></Footer>;
 };
 
 export default memo(AppFooter);

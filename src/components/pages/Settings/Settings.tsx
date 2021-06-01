@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 const Settings: React.FC = () => {
-  return <div>Settings page is here!</div>;
+  return <div>The settings page is hosted here!</div>;
 };
 
 export default memo(Settings);
