@@ -1,0 +1,55 @@
+.card {
+  display: flex;
+  align-items: center;
+  height: 55px;
+  padding: 4px 0;
+  line-height: 1;
+  font-family: Roboto, sans-serif;
+  border-bottom: 1px solid #eef1f4;
+
+  &__color {
+    height: 100%;
+    width: 6px;
+    min-width: 6px;
+    border-radius: 3px;
+    background-color: red;
+  }
+
+  &__id {
+    width: 110px;
+    min-width: 110px;
+    padding: 0 16px;
+    text-align: center;
+  }
+
+  &__name {
+    width: 420px;
+    min-width: 420px;
+    padding: 0 16px;
+    text-align: left;
+  }
+
+  &__status {
+    width: 116px;
+    min-width: 116px;
+    padding: 0 16px;
+    font-size: 12px;
+    text-align: center;
+    color: white;
+
+    &_red {
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: red;
+    }
+  }
+
+  &__executor {
+    padding: 0 16px;
+    text-align: left;
+    white-space: nowrap;
+  }
+}

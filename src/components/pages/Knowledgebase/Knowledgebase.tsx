@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 const Knowledgebase: React.FC = () => {
-  return <div>Knowledgebase page is here!</div>;
+  return <div>The knowledgebase page is hosted here!</div>;
 };
 
 export default memo(Knowledgebase);

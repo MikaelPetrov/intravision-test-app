@@ -1,0 +1,39 @@
+.cards {
+  margin-left: 4px;
+
+  &__headers {
+    display: flex;
+    font-weight: 500;
+  }
+
+  &__header {
+    text-align: left;
+    margin: 12px 0;
+    padding: 0 16px;
+    border-left: 1px solid #e2e7ea;
+
+    &:first-child {
+      min-width: 116px;
+      text-align: center;
+      border-left: none;
+    }
+
+    &:nth-child(2) {
+      min-width: 420px;
+    }
+
+    &:nth-child(3) {
+      min-width: 116px;
+    }
+  }
+
+  &__border {
+    border-bottom: 1px solid #dae0e7;
+  }
+
+  &__content {
+    height: calc(100vh - 204px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
