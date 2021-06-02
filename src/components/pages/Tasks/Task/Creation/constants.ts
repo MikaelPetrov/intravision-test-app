@@ -1,7 +1,7 @@
 export const NAME = "NAME";
 export const DESCRIPTION = "DESCRIPTION";
 
-export const createFileds = [
+export const createFields = [
   {
     id: "1",
     type: NAME,

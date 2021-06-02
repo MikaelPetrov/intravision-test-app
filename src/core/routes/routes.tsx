@@ -3,9 +3,9 @@ import Assets from "../../components/pages/Assets";
 import Clients from "../../components/pages/Clients";
 import Home from "../../components/pages/Home";
 import Knowledgebase from "../../components/pages/Knowledgebase";
-import Requests from "../../components/pages/Requests";
 import Settings from "../../components/pages/Settings";
 import Staff from "../../components/pages/Staff";
+import TasksContainer from "../../components/pages/Tasks/TasksContainer";
 import { Page, paths } from "./constants";
 import { TypeRoute } from "./types";
 
@@ -23,9 +23,9 @@ export function getRoutes(): TypeRoute[] {
       component: <Knowledgebase />,
     },
     {
-      type: Page.REQUESTS,
-      path: paths[Page.REQUESTS],
-      component: <Requests />,
+      type: Page.TASKS,
+      path: paths[Page.TASKS],
+      component: <TasksContainer />,
     },
     {
       type: Page.STAFF,

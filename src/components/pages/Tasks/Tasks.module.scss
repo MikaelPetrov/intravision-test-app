@@ -1,4 +1,4 @@
-.requests {
+.tasks {
   width: 100%;
   font-family: Ubuntu, sans-serif;
   font-size: 16px;
@@ -10,8 +10,7 @@
   &__button {
     height: 40px;
     width: 180px;
-    margin: 24px auto;
-    margin-left: 260px;
+    margin: 24px 260px;
     border-radius: 20px;
 
     font-size: 16px !important;

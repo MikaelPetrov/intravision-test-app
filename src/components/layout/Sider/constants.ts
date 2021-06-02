@@ -15,7 +15,7 @@ export const links = [
   },
   {
     id: "2",
-    path: paths[Page.REQUESTS],
+    path: paths[Page.TASKS],
     name: "Заявки",
     icon: nounFile,
   },
