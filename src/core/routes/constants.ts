@@ -1,7 +1,7 @@
 export enum Page {
   HOME = "HOME",
   KNOWLEDGEBASE = "KNOWLEDGEBASE",
-  REQUESTS = "REQUESTS",
+  TASKS = "TASKS",
   STAFF = "STAFF",
   CLIENTS = "CLIENTS",
   ASSETS = "ASSETS",
@@ -11,7 +11,7 @@ export enum Page {
 export const paths = {
   [Page.HOME]: "/",
   [Page.KNOWLEDGEBASE]: "/knowledgebase",
-  [Page.REQUESTS]: "/requests",
+  [Page.TASKS]: "/tasks",
   [Page.STAFF]: "/staff",
   [Page.CLIENTS]: "/clients",
   [Page.ASSETS]: "/assets",

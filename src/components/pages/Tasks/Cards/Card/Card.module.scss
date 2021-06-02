@@ -6,50 +6,72 @@
   line-height: 1;
   font-family: Roboto, sans-serif;
   border-bottom: 1px solid #eef1f4;
+  cursor: pointer;
 
-  &__color {
+  &:hover {
+    background: cornsilk;
+  }
+
+  &__priority {
     height: 100%;
     width: 6px;
     min-width: 6px;
     border-radius: 3px;
-    background-color: red;
+
+    &_lesser {
+      background: #fef6f6;
+    }
+
+    &_low {
+      background: #fbd6b9;
+    }
+
+    &_middle {
+      background: #f75394;
+    }
+
+    &_high {
+      background: #b32c55;
+    }
+
+    &_critical {
+      background: #ee0909;
+    }
   }
 
   &__id {
+    text-align: center;
     width: 110px;
     min-width: 110px;
     padding: 0 16px;
-    text-align: center;
   }
 
   &__name {
     width: 420px;
     min-width: 420px;
     padding: 0 16px;
-    text-align: left;
   }
 
   &__status {
+    display: flex;
     width: 116px;
     min-width: 116px;
     padding: 0 16px;
     font-size: 12px;
-    text-align: center;
     color: white;
+    white-space: nowrap;
+  }
 
-    &_red {
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      background: red;
-    }
+  &__icon {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 16px;
+    border-radius: 12px;
   }
 
   &__executor {
     padding: 0 16px;
-    text-align: left;
     white-space: nowrap;
   }
 }

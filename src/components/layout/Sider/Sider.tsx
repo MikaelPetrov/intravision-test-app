@@ -10,12 +10,12 @@ import styles from "./Sider.module.scss";
 const { Sider } = Layout;
 
 const AppSider: React.FC = () => {
-  let location = useLocation();
+  const location = useLocation();
   function getKeys() {
     switch (location.pathname) {
       case paths[Page.KNOWLEDGEBASE]:
         return "1";
-      case paths[Page.REQUESTS]:
+      case paths[Page.TASKS]:
         return "2";
       case paths[Page.STAFF]:
         return "3";
