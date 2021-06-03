@@ -3,7 +3,6 @@ import { memo } from "react";
 import { useDispatch } from "react-redux";
 import nounCalendar from "../../../../../assets/icons/nounCalendar.png";
 import { thunks } from "../../../../../redux/reducers/tasksReducer";
-import { toFormatTime } from "../../../../../utils/helpers";
 import { TypeInfo, TypeStatuses, TypeUsers } from "../../types";
 import styles from "./Changer.module.scss";
 import {
@@ -17,6 +16,7 @@ import {
   siderInfo,
   TAGS,
 } from "./constants";
+import { getDate } from "./getDate";
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -33,17 +33,6 @@ type Props = {
 
 const Changer: React.FC<Props> = (props) => {
   const dispatch = useDispatch();
-
-  function getDate(time: string, type: string) {
-    switch (type) {
-      case COMMENT:
-        return toFormatTime(time, "Do MMMM, h:mm") + " прокомментировал";
-      case DATE:
-        return toFormatTime(time, "L");
-      default:
-        break;
-    }
-  }
 
   function getSiderInfo(type: string) {
     switch (type) {
