@@ -12,9 +12,7 @@ const validateMessages = {
   required: `Поле не должно быть пустым!`,
 };
 
-type Props = {};
-
-const Creator: React.FC<Props> = (props) => {
+const Creator: React.FC = () => {
   const dispatch = useDispatch();
 
   function saveTask(value: any) {

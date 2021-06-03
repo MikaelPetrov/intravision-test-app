@@ -11,6 +11,7 @@ const { Sider } = Layout;
 
 const AppSider: React.FC = () => {
   const location = useLocation();
+
   function getKeys() {
     switch (location.pathname) {
       case paths[Page.KNOWLEDGEBASE]:
@@ -33,7 +34,7 @@ const AppSider: React.FC = () => {
   return (
     <Sider className={styles["sider"]}>
       <Link to={paths[Page.HOME]}>
-        <img src={logo} alt="siderLogo" className={styles["sider__logo"]} />
+        <img src={logo} alt="logo" className={styles["sider__logo"]} />
       </Link>
       <Menu
         theme="dark"
@@ -43,7 +44,7 @@ const AppSider: React.FC = () => {
       >
         {links.map((link) => (
           <Menu.Item key={link.id} className={styles["sider__menu-item"]}>
-            <img src={link.icon} alt="siderIcon" />
+            <img src={link.icon} alt="menu" />
             <br />
             <Link to={link.path}>{link.name}</Link>
           </Menu.Item>

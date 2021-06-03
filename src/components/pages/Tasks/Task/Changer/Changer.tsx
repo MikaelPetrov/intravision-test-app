@@ -50,7 +50,7 @@ const Changer: React.FC<Props> = (props) => {
       case INITIATOR:
         return <>{props.info.initiatorName}</>;
       case CREATED:
-        return <>Маркова Анна</>;
+        return <>Маркова Анна</>; // not have data from api...
       case EXECUTOR:
         return (
           <>

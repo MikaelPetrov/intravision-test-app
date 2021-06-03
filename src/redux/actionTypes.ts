@@ -1,4 +1,4 @@
-//tasksReducer
+// tasksReducer
 export const SET_TASKS = "SET_TASKS";
 export const SET_STATUSES = "SET_STATUSES";
 export const SET_USERS = "SET_USERS";
