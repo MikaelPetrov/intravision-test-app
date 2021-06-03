@@ -1,21 +1,26 @@
 .card {
+  font-family: Roboto, sans-serif;
+  line-height: 1;
+
   display: flex;
   align-items: center;
   height: 55px;
   padding: 4px 0;
-  line-height: 1;
-  font-family: Roboto, sans-serif;
-  border-bottom: 1px solid #eef1f4;
   cursor: pointer;
+  border-bottom: 1px solid #eef1f4;
 
   &:hover {
     background: cornsilk;
   }
 
+  &_active {
+    background: cornsilk;
+  }
+
   &__priority {
-    height: 100%;
     width: 6px;
     min-width: 6px;
+    height: 100%;
     border-radius: 3px;
 
     &_lesser {
@@ -40,10 +45,11 @@
   }
 
   &__id {
-    text-align: center;
     width: 110px;
     min-width: 110px;
     padding: 0 16px;
+
+    text-align: center;
   }
 
   &__name {
@@ -53,13 +59,14 @@
   }
 
   &__status {
+    font-size: 12px;
+
     display: flex;
-    width: 116px;
+    width: 200px;
     min-width: 116px;
     padding: 0 16px;
-    font-size: 12px;
-    color: white;
     white-space: nowrap;
+    color: white;
   }
 
   &__icon {

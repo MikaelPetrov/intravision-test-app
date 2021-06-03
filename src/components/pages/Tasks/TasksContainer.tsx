@@ -8,18 +8,27 @@ const TasksContainer: React.FC = () => {
   const dispatch = useDispatch();
   const tasksState = useSelector((state: TypeAppState) => ({
     tasks: state.tasksPage.tasks,
+    statuses: state.tasksPage.statuses,
+    users: state.tasksPage.users,
     info: state.tasksPage.info,
+    activeId: state.tasksPage.activeId,
+    modalMode: state.tasksPage.modalMode,
   }));
 
   useEffect(() => {
     dispatch(thunks.getTasks());
+    dispatch(thunks.getStatuses());
+    dispatch(thunks.getUsers());
   }, [dispatch]);
 
   return (
     <Tasks
       tasks={tasksState.tasks}
+      statuses={tasksState.statuses}
+      users={tasksState.users}
       info={tasksState.info}
-      dispatch={dispatch}
+      activeId={tasksState.activeId}
+      modalMode={tasksState.modalMode}
     />
   );
 };

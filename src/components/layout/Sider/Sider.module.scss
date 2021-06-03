@@ -1,15 +1,15 @@
 .sider {
-  position: fixed;
-  left: 0;
-  height: 100vh;
   font-family: Roboto, sans-serif;
   font-size: 12px;
-  overflow: auto;
 
-  max-width: inherit !important;
-  min-width: inherit !important;
-  width: 95px !important;
+  position: fixed;
+  left: 0;
+  overflow: auto;
   flex: 0 0 95px !important;
+  width: 95px !important;
+  min-width: inherit !important;
+  max-width: inherit !important;
+  height: 100vh;
   background: #002137 !important;
 
   &__logo {
@@ -18,7 +18,6 @@
 
   &__menu {
     text-align: center;
-
     background: #002137 !important;
   }
 

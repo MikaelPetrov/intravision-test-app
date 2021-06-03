@@ -1,58 +1,71 @@
 import classNames from "classnames";
-import { Dispatch, memo } from "react";
+import { memo } from "react";
 import Dotdotdot from "react-dotdotdot";
-import {
-  thunks,
-  TypeAction,
-  TypeThunk,
-} from "../../../../../redux/reducers/tasksReducer";
+import { useDispatch } from "react-redux";
+import { actions, thunks } from "../../../../../redux/reducers/tasksReducer";
 import { UPDATE } from "../../constants";
 import { TypeTasks } from "../../types";
 import styles from "./Card.module.scss";
 import { CRITICAL, HIGH, LESSER, LOW, MIDDLE } from "./constants";
 
 type Props = {
-  dispatch: Dispatch<TypeThunk | TypeAction>;
-  setModalMode: Dispatch<React.SetStateAction<string>>;
+  tasks: TypeTasks[];
+  activeId: number;
 };
 
-const Card: React.FC<Props & TypeTasks> = (props) => {
-  function getPriorityColorClassNames() {
-    return classNames(styles["card__priority"], {
-      [styles["card__priority_lesser"]]: `${props.priorityId}` === LESSER,
-      [styles["card__priority_low"]]: `${props.priorityId}` === LOW,
-      [styles["card__priority_middle"]]: `${props.priorityId}` === MIDDLE,
-      [styles["card__priority_high"]]: `${props.priorityId}` === HIGH,
-      [styles["card__priority_critical"]]: `${props.priorityId}` === CRITICAL,
+const Card: React.FC<Props> = (props) => {
+  const dispatch = useDispatch();
+
+  function getCardColor(id: number) {
+    return classNames(styles["card"], {
+      [styles["card_active"]]: id === props.activeId,
     });
   }
 
-  function getStatusColor() {
+  function getPriorityColor(priorityId: number) {
+    return classNames(styles["card__priority"], {
+      [styles["card__priority_lesser"]]: `${priorityId}` === LESSER,
+      [styles["card__priority_low"]]: `${priorityId}` === LOW,
+      [styles["card__priority_middle"]]: `${priorityId}` === MIDDLE,
+      [styles["card__priority_high"]]: `${priorityId}` === HIGH,
+      [styles["card__priority_critical"]]: `${priorityId}` === CRITICAL,
+    });
+  }
+
+  function getStatusColor(statusRgb: string, statusName: string) {
     return (
-      <div
-        className={styles["card__icon"]}
-        style={{ background: `${props.statusRgb}` }}
-      >
-        <div>{props.statusName}</div>
+      <div className={styles["card__icon"]} style={{ background: statusRgb }}>
+        {statusName}
       </div>
     );
   }
 
-  function openChangeTaskModal() {
-    props.setModalMode(UPDATE);
-    props.dispatch(thunks.getInfo(props.id));
+  function openChangeTaskModal(id: number) {
+    dispatch(actions.setActiveId(id));
+    dispatch(actions.setModalMode(UPDATE));
+    dispatch(thunks.getInfo(id));
   }
 
   return (
-    <div onClick={openChangeTaskModal} className={styles["card"]}>
-      <div className={getPriorityColorClassNames()} />
-      <div className={styles["card__id"]}>{props.id}</div>
-      <div className={styles["card__name"]}>
-        <Dotdotdot clamp={2}>{props.name}</Dotdotdot>
-      </div>
-      <div className={styles["card__status"]}>{getStatusColor()}</div>
-      <div className={styles["card__executor"]}>{props.executorName}</div>
-    </div>
+    <>
+      {props.tasks.map((task) => (
+        <div
+          key={task.id}
+          onClick={() => openChangeTaskModal(task.id)}
+          className={getCardColor(task.id)}
+        >
+          <div className={getPriorityColor(task.priorityId)} />
+          <div className={styles["card__id"]}>{task.id}</div>
+          <Dotdotdot clamp={2} className={styles["card__name"]}>
+            {task.name}
+          </Dotdotdot>
+          <div className={styles["card__status"]}>
+            {getStatusColor(task.statusRgb, task.statusName)}
+          </div>
+          <div className={styles["card__executor"]}>{task.executorName}</div>
+        </div>
+      ))}
+    </>
   );
 };
 

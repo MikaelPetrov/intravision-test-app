@@ -7,24 +7,45 @@ export type TypeTasks = {
   statusRgb: string;
 };
 
+export type TypeTags = {
+  id: number;
+  name: string;
+};
+
+export type TypeLifetimeItems = {
+  comment: string;
+  createdAt: string;
+  fieldName: string | null;
+  id: number;
+  lifetimeType: number;
+  newFieldValue: string | null;
+  oldFieldValue: string | null;
+  userName: string;
+};
+
 export type TypeInfo = {
   id: number;
   name: string;
   description: string;
   initiatorName: string;
+  executorId: number;
   executorName: string;
   priorityName: string;
   resolutionDatePlan: string;
-  lifetimeItems: any;
-  tags: any;
+  lifetimeItems: TypeLifetimeItems[];
+  statusId: number;
+  statusName: string;
+  statusRgb: string;
+  tags: TypeTags[];
 };
 
-export type TypePostData = {
+export type TypeStatuses = {
+  id: number;
+  rgb: string;
   name: string;
-  description: string;
 };
 
-export type TypeValue = {
-  Название: string;
-  Описание: string;
+export type TypeUsers = {
+  id: number;
+  name: string;
 };

@@ -1,23 +1,28 @@
 import { Button } from "antd";
-import { Dispatch, memo, useState } from "react";
-import { TypeAction, TypeThunk } from "../../../redux/reducers/tasksReducer";
+import { memo } from "react";
+import { useDispatch } from "react-redux";
+import { actions } from "../../../redux/reducers/tasksReducer";
 import Cards from "./Cards";
 import { CREATE } from "./constants";
 import Task from "./Task";
 import styles from "./Tasks.module.scss";
-import { TypeInfo, TypeTasks } from "./types";
+import { TypeInfo, TypeStatuses, TypeTasks, TypeUsers } from "./types";
 
 type Props = {
   tasks: TypeTasks[];
+  statuses: TypeStatuses[];
+  users: TypeUsers[];
   info: TypeInfo;
-  dispatch: Dispatch<TypeThunk | TypeAction>;
+  activeId: number;
+  modalMode: string;
 };
 
 const Tasks: React.FC<Props> = (props) => {
-  const [modalMode, setModalMode] = useState("");
+  const dispatch = useDispatch();
 
   function openCreateTaskModal() {
-    setModalMode(CREATE);
+    dispatch(actions.setActiveId(0));
+    dispatch(actions.setModalMode(CREATE));
   }
 
   return (
@@ -32,17 +37,13 @@ const Tasks: React.FC<Props> = (props) => {
           Создать заявку
         </Button>
       </div>
-      <Cards
-        tasks={props.tasks}
-        dispatch={props.dispatch}
-        setModalMode={setModalMode}
-      />
-      {modalMode && (
+      <Cards tasks={props.tasks} activeId={props.activeId} />
+      {props.modalMode && (
         <Task
+          statuses={props.statuses}
+          users={props.users}
           info={props.info}
-          modalMode={modalMode}
-          dispatch={props.dispatch}
-          setModalMode={setModalMode}
+          modalMode={props.modalMode}
         />
       )}
     </div>

@@ -1,50 +1,55 @@
-import React, { Dispatch, memo } from "react";
+import React, { memo } from "react";
 import Dotdotdot from "react-dotdotdot";
+import { useDispatch } from "react-redux";
 import iconClose from "../../../../assets/icons/iconClose.png";
-import { TypeAction, TypeThunk } from "../../../../redux/reducers/tasksReducer";
+import { actions } from "../../../../redux/reducers/tasksReducer";
 import { CREATE } from "../constants";
-import { TypeInfo } from "../types";
+import { TypeInfo, TypeStatuses, TypeUsers } from "../types";
 import Changer from "./Changer";
-import Creation from "./Creation";
+import Creator from "./Creator";
 import styles from "./Task.module.scss";
 
 type Props = {
+  statuses: TypeStatuses[];
+  users: TypeUsers[];
   info: TypeInfo;
   modalMode: string;
-  dispatch: Dispatch<TypeThunk | TypeAction>;
-  setModalMode: Dispatch<React.SetStateAction<string>>;
 };
 
 const Task: React.FC<Props> = (props) => {
+  const dispatch = useDispatch();
+
   function closeCreateMenu() {
-    props.setModalMode("");
+    dispatch(actions.setActiveId(0));
+    dispatch(actions.setModalMode(""));
   }
 
   return (
     <div className={styles["task"]}>
-      <div className={styles["task__header"]}>
+      <div className={styles["header"]}>
         {props.modalMode === CREATE ? (
-          <div className={styles["task__title"]}>Новая заявка</div>
+          <div className={styles["header__title"]}>Новая заявка</div>
         ) : (
-          <div className={styles["task__title"]}>
-            <div className={styles["task__id"]}>{props.info.id}</div>
-            <div className={styles["task__name"]}>
-              <Dotdotdot clamp={2}>{props.info.name}</Dotdotdot>
-            </div>
+          <div className={styles["header__title"]}>
+            <div className={styles["header__id"]}>{props.info.id}</div>
+            <Dotdotdot clamp={2} className={styles["header__name"]}>
+              {props.info.name}
+            </Dotdotdot>
           </div>
         )}
-        <div className={styles["task__close"]}>
+        <div className={styles["header__close"]}>
           <img onClick={closeCreateMenu} src={iconClose} alt="close" />
         </div>
       </div>
-      <div className={styles["task__form"]}>
+      <div className={styles["form"]}>
         {props.modalMode === CREATE ? (
-          <Creation
-            dispatch={props.dispatch}
-            setModalMode={props.setModalMode}
-          />
+          <Creator />
         ) : (
-          <Changer info={props.info} />
+          <Changer
+            statuses={props.statuses}
+            users={props.users}
+            info={props.info}
+          />
         )}
       </div>
     </div>
