@@ -5,31 +5,13 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../../../assets/icons/logo.png";
 import { Page, paths } from "../../../core/routes/constants";
 import { links } from "./constants";
+import { getKeys } from "./getKeys";
 import styles from "./Sider.module.scss";
 
 const { Sider } = Layout;
 
 const AppSider: React.FC = () => {
   const location = useLocation();
-
-  function getKeys() {
-    switch (location.pathname) {
-      case paths[Page.KNOWLEDGEBASE]:
-        return "1";
-      case paths[Page.TASKS]:
-        return "2";
-      case paths[Page.STAFF]:
-        return "3";
-      case paths[Page.CLIENTS]:
-        return "4";
-      case paths[Page.ASSETS]:
-        return "5";
-      case paths[Page.SETTINGS]:
-        return "6";
-      default:
-        return "0";
-    }
-  }
 
   return (
     <Sider className={styles["sider"]}>
@@ -39,7 +21,7 @@ const AppSider: React.FC = () => {
       <Menu
         theme="dark"
         mode="inline"
-        selectedKeys={[getKeys()]}
+        selectedKeys={[getKeys(location.pathname)]}
         className={styles["sider__menu"]}
       >
         {links.map((link) => (

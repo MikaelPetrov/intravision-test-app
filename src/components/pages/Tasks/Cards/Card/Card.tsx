@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { memo } from "react";
 import Dotdotdot from "react-dotdotdot";
 import { useDispatch } from "react-redux";
@@ -6,7 +5,9 @@ import { actions, thunks } from "../../../../../redux/reducers/tasksReducer";
 import { UPDATE } from "../../constants";
 import { TypeTasks } from "../../types";
 import styles from "./Card.module.scss";
-import { CRITICAL, HIGH, LESSER, LOW, MIDDLE } from "./constants";
+import { getCardColor } from "./getCardColor";
+import { getPriorityColor } from "./getPriorityColor";
+import { getStatusColor } from "./getStatusColor";
 
 type Props = {
   tasks: TypeTasks[];
@@ -15,30 +16,6 @@ type Props = {
 
 const Card: React.FC<Props> = (props) => {
   const dispatch = useDispatch();
-
-  function getCardColor(id: number) {
-    return classNames(styles["card"], {
-      [styles["card_active"]]: id === props.activeId,
-    });
-  }
-
-  function getPriorityColor(priorityId: number) {
-    return classNames(styles["card__priority"], {
-      [styles["card__priority_lesser"]]: `${priorityId}` === LESSER,
-      [styles["card__priority_low"]]: `${priorityId}` === LOW,
-      [styles["card__priority_middle"]]: `${priorityId}` === MIDDLE,
-      [styles["card__priority_high"]]: `${priorityId}` === HIGH,
-      [styles["card__priority_critical"]]: `${priorityId}` === CRITICAL,
-    });
-  }
-
-  function getStatusColor(statusRgb: string, statusName: string) {
-    return (
-      <div className={styles["card__icon"]} style={{ background: statusRgb }}>
-        {statusName}
-      </div>
-    );
-  }
 
   function openChangeTaskModal(id: number) {
     dispatch(thunks.getInfo(id));
@@ -52,7 +29,7 @@ const Card: React.FC<Props> = (props) => {
         <div
           key={task.id}
           onClick={() => openChangeTaskModal(task.id)}
-          className={getCardColor(task.id)}
+          className={getCardColor(task.id, props.activeId)}
         >
           <div className={getPriorityColor(task.priorityId)} />
           <div className={styles["card__id"]}>{task.id}</div>
