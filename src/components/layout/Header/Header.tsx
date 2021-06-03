@@ -6,8 +6,8 @@ const AppHeader: React.FC = () => {
   return (
     <div className={styles["header"]}>
       <div className={styles["header__search"]}>
-        <input className={styles["header__input"]} type="text" />
-        <img className={styles["header__icon"]} src={nounSearch} alt="search" />
+        <input type="text" className={styles["header__input"]} />
+        <img src={nounSearch} alt="search" className={styles["header__icon"]} />
       </div>
     </div>
   );

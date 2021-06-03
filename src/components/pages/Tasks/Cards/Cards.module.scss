@@ -1,18 +1,20 @@
 .cards {
   margin-left: 4px;
   text-align: left;
+}
 
-  &__headers {
-    display: flex;
-    justify-content: left;
-    margin: 12px 0;
-    font-weight: 500;
-  }
+.header {
+  font-weight: 500;
+
+  display: flex;
+  justify-content: left;
+  margin: 12px 0;
 
   &__id {
-    text-align: center;
     min-width: 116px;
     padding: 0 16px;
+
+    text-align: center;
   }
 
   &__name {
@@ -22,7 +24,7 @@
   }
 
   &__status {
-    min-width: 116px;
+    min-width: 200px;
     padding: 0 16px;
     border-left: 1px solid #e2e7ea;
   }
@@ -31,14 +33,15 @@
     padding: 0 16px;
     border-left: 1px solid #e2e7ea;
   }
+}
 
-  &__border {
-    border-bottom: 1px solid #dae0e7;
-  }
+.border {
+  border-bottom: 1px solid #dae0e7;
+}
 
-  &__content {
-    height: calc(100vh - 204px);
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
+.content {
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  height: calc(100vh - 204px);
 }

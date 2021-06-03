@@ -1,22 +1,24 @@
 .task {
+  line-height: 1;
+
   position: absolute;
   top: 0;
   left: 535px;
   width: calc(100% - 535px);
-  line-height: 1;
   border-left: 1px solid #d7dce0;
   background: #ecf3f7;
+}
 
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    font-family: Roboto, sans-serif;
-    font-size: 16px;
-    color: white;
-    background: #1a4876;
-  }
+.header {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  color: white;
+  background: #1a4876;
 
   &__title {
     display: flex;
@@ -30,20 +32,21 @@
   }
 
   &__name {
+    width: 596px;
+
     text-align: left;
   }
 
   &__close {
-    text-align: right;
-    min-width: 200px;
-    margin: 0 30px;
+    margin: 0 30px 0 154px;
     cursor: pointer;
+    text-align: right;
   }
+}
 
-  &__form {
-    height: calc(100vh - 126px);
-    overflow-x: hidden;
+.form {
+  overflow-x: hidden;
+  overflow-y: scroll !important;
 
-    overflow-y: scroll !important;
-  }
+  height: calc(100vh - 126px);
 }

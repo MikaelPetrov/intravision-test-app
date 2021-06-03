@@ -1,12 +1,148 @@
 .changer {
+  font-size: 14px;
   display: flex;
   justify-content: space-between;
+}
 
-  &__description {
+.content {
+  min-width: 755px;
+  padding: 25px 40px;
+  text-align: left;
+
+  &__field {
+    width: 625px;
+    padding-top: 50px;
+
+    &:first-child {
+      padding-top: 0;
+    }
   }
 
-  &__info {
-    width: 240px;
-    min-width: 240px;
+  &__title {
+    color: #9f9ea7;
+  }
+
+  &__area {
+    min-height: 85px !important;
+    margin-top: 12px;
+    border-radius: 5px;
+  }
+}
+
+.chat {
+  margin: 20px 0;
+
+  &__header {
+    display: flex;
+  }
+}
+
+.avatar {
+  font-family: Roboto, sans-serif;
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid #d7dce0;
+  border-radius: 20px;
+  background: white;
+}
+
+.user {
+  padding-left: 10px;
+
+  &__name {
+    padding: 3px 0;
+    color: #525460;
+  }
+
+  &__date {
+    font-size: 12px;
+    padding: 3px 0;
+    color: #63677c;
+  }
+
+  &__comment {
+    width: 625px;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #dce3e7;
+    border-radius: 5px;
+    background: #e3e9f4;
+  }
+}
+
+.sider {
+  width: 200px;
+  min-width: 200px;
+  height: calc(100vh - 126px);
+  padding: 25px;
+  border-left: 1px solid #d7dce0;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+
+  &__color {
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+  }
+
+  &__name {
+    width: 100%;
+    text-align: left;
+    color: #1974d2;
+  }
+}
+
+.info {
+  margin: 40px 0;
+  text-align: left;
+
+  &__name {
+    margin-bottom: 14px;
+    color: #a09fa8;
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+  }
+
+  &__tag {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: 20px;
+    margin: 2px 0;
+    padding: 0 14px;
+    color: #9da1aa;
+    border: 1px solid #9da1aa;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  &__users {
+    width: calc(100% + 11px);
+    margin-left: -11px;
+    color: #1974d2;
+  }
+}
+
+.calendar {
+  margin-right: 6px;
+}
+
+.save {
+  text-align: left;
+
+  &__button {
+    font-size: 16px !important;
+    line-height: 1 !important;
+    width: 150px;
+    height: 40px;
+    margin: 20px 0;
+    border-radius: 20px;
   }
 }
