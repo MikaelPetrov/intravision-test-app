@@ -19,8 +19,8 @@ import { InferActionsType, InferThunksType } from "../reduxStore";
 import { TypeStatuses, TypeUsers } from "./../../components/pages/Tasks/types";
 
 type TypeInitialState = typeof initialState;
-export type TypeAction = InferActionsType<typeof actions>;
-export type TypeThunk = InferThunksType<TypeAction>;
+type TypeAction = InferActionsType<typeof actions>;
+type TypeThunk = InferThunksType<TypeAction>;
 
 const initialState = {
   tasks: [] as TypeTasks[],
@@ -112,25 +112,18 @@ export const thunks = {
   postTask:
     (value: any): TypeThunk =>
     async (dispatch) => {
-      const postResponse = await instance.post(posts[Api.API_TASK], value);
-
-      const infoResponse = await instance.get(
-        gets[Api.API_TASK] + postResponse.data
-      );
-      const taskInfo = toTaskInfo(infoResponse.data);
-      dispatch(actions.setInfo(taskInfo));
-
-      const tasksResponse = await instance.get(gets[Api.ODATA_TASKS]);
-      const tasksList = toTasksList(tasksResponse.data.value);
-      dispatch(actions.setTasks(tasksList));
+      const response = await instance.post(posts[Api.API_TASK], value);
+      if (response.data) {
+        dispatch(thunks.getTasks());
+        dispatch(thunks.getInfo(response.data));
+      }
     },
   putData:
     (value: any): TypeThunk =>
     async (dispatch) => {
       await instance.put(puts[Api.API_TASK], value);
-      const response = await instance.get(gets[Api.API_TASK] + value.id);
-      const taskInfo = toTaskInfo(response.data);
-      dispatch(actions.setInfo(taskInfo));
+      dispatch(thunks.getTasks());
+      dispatch(thunks.getInfo(value.id));
     },
 };
 

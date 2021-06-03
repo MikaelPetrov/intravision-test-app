@@ -41,9 +41,9 @@ const Card: React.FC<Props> = (props) => {
   }
 
   function openChangeTaskModal(id: number) {
+    dispatch(thunks.getInfo(id));
     dispatch(actions.setActiveId(id));
     dispatch(actions.setModalMode(UPDATE));
-    dispatch(thunks.getInfo(id));
   }
 
   return (
