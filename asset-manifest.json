@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/intravision-test-app/static/css/main.369cb1ad.chunk.css",
+    "main.js": "/intravision-test-app/static/js/main.a57cbc64.chunk.js",
+    "main.js.map": "/intravision-test-app/static/js/main.a57cbc64.chunk.js.map",
+    "runtime-main.js": "/intravision-test-app/static/js/runtime-main.98c6dd88.js",
+    "runtime-main.js.map": "/intravision-test-app/static/js/runtime-main.98c6dd88.js.map",
+    "static/css/2.3c3a73a9.chunk.css": "/intravision-test-app/static/css/2.3c3a73a9.chunk.css",
+    "static/js/2.d86bb4d3.chunk.js": "/intravision-test-app/static/js/2.d86bb4d3.chunk.js",
+    "static/js/2.d86bb4d3.chunk.js.map": "/intravision-test-app/static/js/2.d86bb4d3.chunk.js.map",
+    "static/js/3.818c2cdf.chunk.js": "/intravision-test-app/static/js/3.818c2cdf.chunk.js",
+    "static/js/3.818c2cdf.chunk.js.map": "/intravision-test-app/static/js/3.818c2cdf.chunk.js.map",
+    "index.html": "/intravision-test-app/index.html",
+    "static/css/2.3c3a73a9.chunk.css.map": "/intravision-test-app/static/css/2.3c3a73a9.chunk.css.map",
+    "static/css/main.369cb1ad.chunk.css.map": "/intravision-test-app/static/css/main.369cb1ad.chunk.css.map",
+    "static/js/2.d86bb4d3.chunk.js.LICENSE.txt": "/intravision-test-app/static/js/2.d86bb4d3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.98c6dd88.js",
+    "static/css/2.3c3a73a9.chunk.css",
+    "static/js/2.d86bb4d3.chunk.js",
+    "static/css/main.369cb1ad.chunk.css",
+    "static/js/main.a57cbc64.chunk.js"
+  ]
+}
